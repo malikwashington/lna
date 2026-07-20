@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "id": "lead-harbor-hotel",
+      "title": "Harbor Hotel — lobby rebrand",
+      "context": "Inbound inquiry two weeks ago from the GM: 'we're refreshing the lobby and our menus before the summer season, saw your work for the Fern Cafe.' Budget not stated. Summer season starts in about 10 weeks. No reply yet to our intro email sent 9 days ago.",
+      "givens": {"fit_score": 88, "source": "inbound", "days_since_contact": 9}
+    },
+    {
+      "id": "lead-brightpath",
+      "title": "BrightPath Software — website overhaul",
+      "context": "Found via a job board post seeking 'an agency for a full site redesign, RFP process, 6-8 competing bidders expected.' Enterprise software company; we have no software clients or references. Deadline for proposals in 3 weeks.",
+      "givens": {"fit_score": 74, "source": "rfp_board", "competitors_expected": 7}
+    },
+    {
+      "id": "lead-fern-cafe-2",
+      "title": "Fern Cafe — second location",
+      "context": "Our past client (2025 menu + signage project, delivered on time, owner publicly credited us) is opening a second location in the fall. She mentioned it in passing last month but hasn't asked us anything. We know her direct number.",
+      "givens": {"fit_score": 70, "source": "existing_client", "past_project": true}
+    }
+  ]
+}

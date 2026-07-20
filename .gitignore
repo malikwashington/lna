@@ -1,0 +1,16 @@
+# user data — never ship real inputs or state
+/lna.yaml
+/items.json
+out/
+records/
+
+# python / os
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+
+# review-gate scaffolding — local proof, not shipped
+/.review-attestation.json
+/.review-history.jsonl
+/reviews/

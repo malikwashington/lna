@@ -1,0 +1,20 @@
+# lna config — synthetic example: a freelance studio deciding which inbound
+# leads to work first. Copy to the repo root as lna.yaml and define YOUR
+# mission precisely — judges estimate exactly the probability this line names.
+# Quote every multi-word string (unquoted "word: word" is a YAML trap).
+
+mission: "P(signed engagement within 60 days | we invest effort in this lead starting now)"
+
+actor_context: >
+  A two-person design studio. Can produce a tailored proposal or small spec
+  sample in under a week; has strong client references in hospitality and
+  retail; no existing relationships in enterprise software.
+
+calibration:
+  - "A referral or named internal champion is worth more than any document."
+  - "Leads older than 30 days without contact have decayed sharply."
+  - "A spec sample moves odds only when the lead named a concrete deliverable."
+
+runs: 3
+disagreement_spread: 20   # judges splitting >= this on either metric is flagged,
+                          # not silently averaged
