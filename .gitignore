@@ -14,3 +14,6 @@ __pycache__/
 /.review-attestation.json
 /.review-history.jsonl
 /reviews/
+
+# pytest runtime cache
+.pytest_cache/
