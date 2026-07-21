@@ -29,6 +29,9 @@ one component of my private job-search pipeline — a larger, multi-module syste
 on my real data. Same model, rebuilt minimally with the personal inputs
 stripped out.
 
+See the [system map →](https://malikwashington.github.io/skill-generator/) for where lna fits in
+the larger pipeline it was rebuilt from.
+
 I built it to run entirely on my Claude Code subscription and without incurring
 additional costs: the judging is done by Claude Code subagents, not a billable
 Anthropic API key, so a full run adds nothing to my bill.
