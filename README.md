@@ -24,9 +24,14 @@ ranking roles by fit. The mechanism generalizes to any pipeline where you have
 more options than time — leads, grants, venues, deals — so it ships as a
 general decision layer, but that concrete question is what it was made to answer.
 
-This public release is the generalized form; a fuller version runs privately
-inside that job-search pipeline on my real data — same pattern, personal
-inputs stripped out.
+This standalone skill rebuilds the likelihood-plus-next-action model I run as
+one component of my private job-search pipeline — a larger, multi-module system
+on my real data. Same model, rebuilt minimally with the personal inputs
+stripped out.
+
+I built it to run entirely on my Claude Code subscription and without incurring
+additional costs: the judging is done by Claude Code subagents, not a billable
+Anthropic API key, so a full run adds nothing to my bill.
 
 ## Why likelihood ≠ fit
 Judges are explicitly instructed never to anchor on a fit score passed in
@@ -41,11 +46,13 @@ layer would be redundant — its value is exactly the items where they split.
    `items.json` (each item with real context and optional `givens` like
    existing scores) become a self-describing worklist; items with an
    existing record are skipped (`--rejudge` to redo).
-2. **judge** — N independent runs (fresh subagent each; default 3), each
-   estimating both probabilities + the action. The with-action boost is
-   calibrated: closing a named gap at thin competition → large; warm intro
-   at a crowded target → large; framing alone → small; verification-only →
-   none.
+2. **judge** — lna emits a worklist requesting N independent runs (default 3)
+   and ingests whatever responses come back; *running* the judges — Claude Code
+   subagents, an API, or a human — is the caller's step (one fresh read per
+   run). Each run estimates both probabilities + the action. The with-action
+   boost is calibrated: closing a named gap at thin competition → large; warm
+   intro at a crowded target → large; framing alone → small; verification-only
+   → none.
 3. **ingest** — validates loud (out-of-range numbers, an "action" that
    lowers the odds, empty responses all rejected; zero valid aborts),
    averages the runs, computes leverage, and raises two advisory flags:
@@ -119,7 +126,7 @@ triaging three leads) ship.
 `docket-llm` scores a queue against a rubric (fit); lna is the second
 opinion on what to do about it. `tailor-artifacts` often executes the
 top_action ("send a tailored pitch"), and `blind-review` checks the artifact
-before it goes out. Same worklist kernel throughout — deliberately parallel
+before it goes out. Same worklist pattern throughout — deliberately parallel
 implementations, each self-contained.
 
 ---
